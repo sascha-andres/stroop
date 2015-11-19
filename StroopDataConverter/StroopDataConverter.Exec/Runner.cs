@@ -20,23 +20,51 @@ namespace StroopDataConverter.Exec {
 
         using ( var excel = new OfficeOpenXml.ExcelPackage( fInfo ) ) {
         var ws = excel.Workbook.Worksheets.Add( "export" );
-        int row = 1;
+        ws.Cells[1, 1].Value = "timeCode";
+        ws.Cells[1, 2].Value = "code";
+        ws.Cells[1, 3].Value = "testIndex";
+        ws.Cells[1, 4].Value = "aOrB";
+        ws.Cells[1, 5].Value = "average";
+        int row = 2;
         foreach ( string file in Directory.GetFiles( @"C:\Dev\Projects\sascha\Carmen\stroop\data" ) ) {
           var column = 1;
+          var fInfoData = new FileInfo( file );
+          ws.Cells[row, column].Value = fInfoData.Name.Split(new char[] {'.'})[0];
+          column++;
           var stroop = JsonConvert.DeserializeObject<StroopData>( File.ReadAllText( file ) );
           ws.Cells[row, column].Value = stroop.state.code;
           column++;
+          ws.Cells[row, column].Value = stroop.state.testIndex;
+          column++;
+          ws.Cells[row, column].Value = stroop.state.aOrB;
+          column+=2;
+          int count = stroop.stroopResults.Count;
+          int sum = 0;
           foreach ( var stroopResult in stroop.stroopResults ) {
+            ws.Cells[1, column].Value = "correct";
             ws.Cells[row, column].Value = stroopResult.correct;
             column++;
-            ws.Cells[row, column].Value = stroopResult.pressed;
+            ws.Cells[1, column].Value = "pressed";
+            ws.Cells[row, column].Value = translate(stroopResult.pressed);
             column++;
+            ws.Cells[1, column].Value = "time";
             ws.Cells[row, column].Value = stroopResult.time;
+            column++;
+            sum += stroopResult.time;
           }
+          if (count>0) ws.Cells[row, 5].Value = sum/count;
           row++;
         }
         excel.Save();
       }
+    }
+
+    private static string translate(string key) {
+      if ( key == "A" ) return "ROT";
+      if ( key == "S" ) return "GRÜN";
+      if ( key == "Y" ) return "BLAU";
+      if ( key == "X" ) return "GELB";
+      return "??";
     }
 
     public void Dispose () {

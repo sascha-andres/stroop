@@ -9,5 +9,6 @@ namespace StroopDataConverter.Lib.Models {
     public string view { get; set; }
     public string code { get; set; }
     public string testIndex { get; set; }
+    public string aOrB { get; set; }
   }
 }
