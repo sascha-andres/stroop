@@ -25,7 +25,8 @@
 		        var podCastPrefix = "B_";
             requirejs(['app'], function() {
                   requirejs(["react", "viewcontroller", "models/config"], function(React, ViewController, Config) {
-														Config.state.testIndex = "T_2";
+							Config.state.testIndex = "T_2";
+							Config.state.aOrB = "B";
                             var vc = React.createElement(ViewController, {});
                             React.render(vc, document.getElementById('app'));
                   });

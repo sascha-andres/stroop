@@ -60,7 +60,8 @@ define([], function () {
 	var state = {
 		view: "Introduction",
 		code: "",
-		testIndex: "-1"
+		testIndex: "-1",
+		aOrB: ""
 	};
 	
 	var exports = {
