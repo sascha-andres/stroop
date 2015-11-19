@@ -2,3 +2,6 @@ packages/
 obj
 StroopDataConverter/.vs/StroopDataConverter/v14/.suo
 bin/
+node_modules/
+web/scripts/
+web/bower_components/

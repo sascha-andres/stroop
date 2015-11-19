@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Lernen mit Multimedia</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+
+		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+		<script src="keyhandling/keymaster.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+		<script src="bower_components/react/react-with-addons.min.js"></script>
+		<script src="bower_components/requirejs/require.js"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script type="text/javascript">
+		        var podCastPrefix = "A_";
+            requirejs(['app'], function() {
+                  requirejs(["react", "viewcontroller", "models/config"], function(React, ViewController, Config) {
+														Config.state.testIndex = "T_2";
+                            var vc = React.createElement(ViewController, {});
+                            React.render(vc, document.getElementById('app'));
+                  });
+            });
+        </script>
+	</body>
+</html>
