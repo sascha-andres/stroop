@@ -7,7 +7,7 @@ define(["react", "mixins/Navigation", "components/videoplayer"], function (React
 		render: function() {
 				return (
 					<div className="centeredText">
-						Bevor Sie mit der Aufgabe beginnen, warten Sie, bis der Versuchsleiter Sie dazu auffordert.<br/><br/>
+						Sie können nun mit dem Test beginnen<br/><br/>
 						<button className="btn btn-default" onClick={this.moveNext}>Weiter</button>
 					</div>
 				);
