@@ -4,11 +4,21 @@ define(["react", "mixins/Navigation", "models/config", "components/Stroop/Test",
 	return React.createClass({
 		mixins: [Navigation],
 		
+		getInitialState: function() {
+			var newDate = new Date();
+			return {
+				startTime: newDate.timeNow()
+			};
+		},
+		
 		pushTestResultHandler: function(result) {
 			 Config.stroopResults.push(result);
 		},
 		
 		videoEnd: function() {
+			var newDate = new Date();
+			Config.state.stopTime = newDate.timeNow();
+			Config.state.startTome = this.state.startTime;
 			this.moveNext();
 		},
 		

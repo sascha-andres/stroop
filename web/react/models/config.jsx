@@ -62,7 +62,9 @@ define([], function () {
 		code: "",
 		testIndex: "-1",
 		aOrB: "",
-		mailInfo: ""
+		mailInfo: "",
+		startTime: null,
+		stopTime: null
 	};
 	
 	var exports = {
