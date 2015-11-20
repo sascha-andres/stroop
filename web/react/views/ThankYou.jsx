@@ -5,7 +5,7 @@ define(["react"], function (React) {
 		render: function() {
 			return (
 				<div className="centeredText">
-					Audiotest
+					Ich bedanke mich nochmal herzlich für die Teilnahme an dieser Erhebung. Sie haben mir sehr geholfen. 
 				</div>
 			);
 		}

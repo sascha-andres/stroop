@@ -37,7 +37,7 @@ define(["react", "mixins/Navigation", "models/config"], function (React, Navigat
 				<div className="centeredText">
 					<p>Vielen Dank, dass Sie sich dafür bereit erklärt haben, an dieser Testung teilzunehmen. Sie erweisen mir damit einen großen Dienst und sind eine unglaubliche Hilfe für das Gelingen meiner Bachelorarbeit. Ihre Daten werden anonym erfasst, vertraulich behandelt und nicht an Dritte weitergegeben. Falls Sie Interesse an den Forschungsergebnissen haben, lasse ich Ihnen dieser gerne per Mail zukommen.  Die Studie an der Sie teilnehmen handelt vom Lernen mit Enhanced Podcasts. Enhanced Podcasts sind multimediale Lernangebote, die sich durch eine gleichzeitige Präsentation bildlicher (in unserem Fall ein Video) und sprachlicher Informationen auszeichnen.</p>
 					{questionaire}
-					<p>Nach Beendigung des Fragebogens, können Sie auf Anweisung des Instruktors fortfahren​</p>
+					<p>Bitte lassen schliessen Sie keines der Fenster. Sie können wahlweise den Fragebogen oder dieses Fenster minimieren. Sie werden im Laufe der Erhebung zwischen den Fenstern wechseln​.</p>
 					{navigationalElements}
 				</div>
 			);
