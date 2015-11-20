@@ -61,7 +61,8 @@ define([], function () {
 		view: "Introduction",
 		code: "",
 		testIndex: "-1",
-		aOrB: ""
+		aOrB: "",
+		mailInfo: ""
 	};
 	
 	var exports = {
