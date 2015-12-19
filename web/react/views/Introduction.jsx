@@ -39,9 +39,6 @@ define(["react", "mixins/Navigation", "models/config"], function (React, Navigat
 					{questionaire}
 					<p>Bitte schliessen Sie keines der Fenster. Sie können wahlweise den Fragebogen oder dieses Fenster minimieren. Sie werden im Laufe der Erhebung zwischen den Fenstern wechseln​.</p>
 					{navigationalElements}
-					<br />
-					Tragen Sie im folgenden Textfeld Ihre E-Mail ein, wenn Sie über Ergebnisse informiert werden wollen:<br />
-					<input type="text" />
 				</div>
 			);
 		}

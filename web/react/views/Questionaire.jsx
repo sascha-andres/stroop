@@ -7,7 +7,7 @@ define(["react", "mixins/Navigation"], function (React, Navigation) {
 		render: function() {
 			return (
 			 <div className="centeredText">
-					<p>Bitte fahren Sie nun fohrt mit dem Ausfüllen des Fragebogens.</p>
+					<p>Bitte fahren Sie nun fort mit dem Ausfüllen des Fragebogens.</p>
 					<br />
 					<button className="btn btn-default" onClick={this.moveNext}>Weiter</button>
 				</div>
