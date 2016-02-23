@@ -7,10 +7,12 @@
 using Newtonsoft.Json;
 using StroopDataConverter.Lib.Models;
 using System;
+using System.Drawing;
 using System.IO;
 
 namespace StroopDataConverter.Exec {
   class Runner : IDisposable {
+    private const int BLACKTIME = 500;
     bool _Disposed = false;
 
     public void Run () {
@@ -40,6 +42,8 @@ namespace StroopDataConverter.Exec {
           column += 2;
           int count = stroop.stroopResults.Count;
           int sum = 0;
+          int accumulatedRuntime = 0;
+          bool firstTestEnd = false;
           foreach ( var stroopResult in stroop.stroopResults ) {
             ws.Cells[1, column].Value = "correct";
             ws.Cells[row, column].Value = stroopResult.correct;
@@ -51,8 +55,19 @@ namespace StroopDataConverter.Exec {
             ws.Cells[row, column].Value = stroopResult.time;
             column++;
             sum += stroopResult.time;
+            ws.Cells[1, column].Value = "accumulatedRuntime";
+            accumulatedRuntime += stroopResult.time;
+            accumulatedRuntime += BLACKTIME;
+            if ( !firstTestEnd && accumulatedRuntime / 1000 >= 60 ) {
+              Color colFromHex = System.Drawing.ColorTranslator.FromHtml( "#B7DEE8" );
+              ws.Cells[row, column].Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+              ws.Cells[row, column].Style.Fill.BackgroundColor.SetColor( colFromHex );
+              firstTestEnd = true;
+            }
+            ws.Cells[row, column].Value = accumulatedRuntime / 1000;
+            column++;
           }
-          ws.Cells[row, 5].Value = (double)(sum+(count*500))/1000/60;
+          //ws.Cells[row, 5].Value = (double)(sum+(count*BLACKTIME))/1000/60;
           row++;
         }
         excel.Save();
